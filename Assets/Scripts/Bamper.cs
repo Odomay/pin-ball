@@ -19,6 +19,7 @@ public class Bamper : MonoBehaviour
     {
         _pointLight.color = new Color(Random.value, Random.value, Random.value);
         IncreaseScale();
+        SoundManager.Instance.PlaySound(SoundType.BamperType);
     }
 
     private void OnCollisionExit(Collision collision)

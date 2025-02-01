@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,15 +14,21 @@ public class GameManager : MonoBehaviour
 
     [Header("PausePanelLogic")]
     public Button ResumeButton;
-    public Button ExitButton;
+    public Button ExitMenuButton;
     public Button PauseButton;
+    public Button MuteButton;
+    public Button unmuteButton;
     public GameObject PausePanel;
 
     private void Start()
     {
         ResumeButton.onClick.AddListener(ResumeGame);
-        ExitButton.onClick.AddListener(ExitGame);
+        ExitMenuButton.onClick.AddListener(ExitMenu);
         PauseButton.onClick.AddListener(PauseGame);
+        SoundManager.Instance.AudioSettings(MuteButton, unmuteButton);
+        CheckPlayMusic();
+        SoundManager.Instance.PlaySound(SoundType.GameHitsType);
+
     }
 
     private void Update()
@@ -30,9 +37,10 @@ public class GameManager : MonoBehaviour
         HitPointsText.text = $"{GameScore}";
     }
 
-    private void ExitGame()
+    private void ExitMenu()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
+        SoundManager.Instance.PlaySound(SoundType.ButtonType);
     }
 
     private void ResumeGame()
@@ -40,6 +48,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         PausePanel.SetActive(false);
         PauseButton.interactable = true;
+        SoundManager.Instance.PlaySound(SoundType.ButtonType);
     }
 
     private void PauseGame()
@@ -47,6 +56,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         PausePanel.SetActive(true);
         PauseButton.interactable = false;
+        SoundManager.Instance.PlaySound(SoundType.ButtonType);
     }
-   
+
+    private void CheckPlayMusic()
+    {
+        if (SoundManager.Instance.AudioSource.isPlaying)
+        {
+            SoundManager.Instance.AudioSource.Stop();
+        }
+    }
+
 }

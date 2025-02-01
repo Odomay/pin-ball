@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        SoundManager.Instance.PlaySound(SoundType.BallType);
         GameObject flashLightObject = new GameObject("Flash");
         Light flashLight = flashLightObject.AddComponent<Light>();
         flashLight.color = FlashColor;
@@ -19,4 +20,6 @@ public class Ball : MonoBehaviour
         flashLightObject.transform.position = collision.contacts[0].point;
         Destroy(flashLightObject, FlashDuration);
     }
+
+   
 }

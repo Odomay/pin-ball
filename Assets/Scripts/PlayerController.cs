@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                SoundManager.Instance.PlaySound(SoundType.PlungerType);
                 PlungerAnimator.SetFloat("Direction", 1);
             }
         }

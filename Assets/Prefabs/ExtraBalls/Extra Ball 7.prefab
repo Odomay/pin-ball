@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2336708209106308184}
   - component: {fileID: 3639717469657477386}
   - component: {fileID: 6929530504446006422}
+  - component: {fileID: -1681654186173752893}
   m_Layer: 0
   m_Name: Extra Ball 7
   m_TagString: ExtraBall
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2210229116114503538}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.53699875, y: -1.06, z: -0.0539999}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &-1681654186173752893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2210229116114503538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af3b02be932d8040b14be6d13cde9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

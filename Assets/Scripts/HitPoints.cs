@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class HitPoints : MonoBehaviour
 {
+    public int MainBallPoints => _pointsPerHitMainBall;
+    public int ExtraBallPoints => _pointsPerHitExtraBall;
+
     private int _pointsPerHitMainBall = 10;
     private int _pointsPerHitExtraBall = 100;
 
@@ -15,6 +18,8 @@ public class HitPoints : MonoBehaviour
             GameManager.GameScore += _pointsPerHitMainBall;
         }
         if (collision.gameObject.CompareTag("ExtraBall"))
+        {
             GameManager.GameScore += _pointsPerHitExtraBall;
+        }
     }
 }
